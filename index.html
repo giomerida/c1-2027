@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaña C1 - Academia Alived & CCP</title>
+    <!-- Carga de Tailwind CSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos de Lucide para detalles visuales -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(28px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'fade-in-up-delay': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards',
+                        'fade-in-up-fast': 'fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen selection:bg-blue-600 selection:text-white">
+
+    <!-- =====================================================================
+         1. HEADER (Contenedor preparado para una imagen fija)
+    ====================================================================== -->
+    <header class="relative w-full h-64 sm:h-80 md:h-96 bg-slate-900 overflow-hidden shadow-lg">
+        <!-- Reemplaza el atributo 'src' con la ruta de tu imagen fija -->
+        <img 
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80" 
+            alt="Banner Principal Campaña C1" 
+            onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0f172a/ffffff?text=Imagen+Fija+del+Header';"
+            class="w-full h-full object-cover object-center opacity-85 transition-transform duration-700 hover:scale-105"
+        >
+        <!-- Degradado sutil inferior para integrar visualmente con el cuerpo -->
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/20 pointer-events-none"></div>
+    </header>
+
+    <!-- =====================================================================
+         2. BODY (Contenido Principal con ambas secciones de Campaña C1)
+    ====================================================================== -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-20">
+
+        <!-- SECCIÓN 1: Academia de Salud Alived -->
+        <section id="seccion-alived" class="space-y-8 opacity-0 animate-fade-in-up">
+            <!-- Encabezado de la sección -->
+            <div class="text-center space-y-2">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-800 text-xs sm:text-sm font-bold tracking-widest uppercase">
+                    Campaña C1
+                </span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Academia de Salud Alived
+                </h1>
+                <p class="text-slate-500 text-sm sm:text-base max-w-xl mx-auto pt-1">
+                    Selecciona una especialidad para desplegar su galería.
+                </p>
+            </div>
+
+            <!-- Contenedor de los 3 nombres grandes interactivos (Alived) -->
+            <div id="lista-alived" class="space-y-4">
+                <!-- Se genera dinámicamente desde JavaScript -->
+            </div>
+
+            <!-- Dossier y Visor Vertical para Alived -->
+            <div class="pt-8 space-y-6">
+                <div class="text-center space-y-1">
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Dossier
+                    </h3>
+                    <p class="text-slate-500 text-sm sm:text-base">
+                        Desliza o usa los controles para subir y explorar el dossier de Alived.
+                    </p>
+                </div>
+                <div id="visor-container-alived"></div>
+            </div>
+        </section>
+
+        <!-- Separador visual elegante -->
+        <div class="border-t border-slate-200/80 my-8 opacity-0 animate-fade-in-up-delay"></div>
+
+        <!-- SECCIÓN 2: Centro de Capacitación Profesional CCP -->
+        <section id="seccion-ccp" class="space-y-8 opacity-0 animate-fade-in-up-delay">
+            <!-- Encabezado de la sección -->
+            <div class="text-center space-y-2">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-800 text-xs sm:text-sm font-bold tracking-widest uppercase">
+                    Campaña C1
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Centro de Capacitación Profesional CCP
+                </h2>
+                <p class="text-slate-500 text-sm sm:text-base max-w-xl mx-auto pt-1">
+                    Selecciona un programa para desplegar su galería de fotografías.
+                </p>
+            </div>
+
+            <!-- Contenedor de los 3 nombres grandes interactivos (CCP) -->
+            <div id="lista-ccp" class="space-y-4">
+                <!-- Se genera dinámicamente desde JavaScript -->
+            </div>
+
+            <!-- Dossier y Visor Vertical para CCP -->
+            <div class="pt-8 space-y-6">
+                <div class="text-center space-y-1">
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Dossier
+                    </h3>
+                    <p class="text-slate-500 text-sm sm:text-base">
+                        Desliza o usa los controles para subir y explorar el dossier de CCP.
+                    </p>
+                </div>
+                <div id="visor-container-ccp"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================================
+         MODAL / LIGHTBOX (Para ver cada fotografía en tamaño completo al hacer clic)
+    ====================================================================== -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300" onclick="cerrarLightbox()">
+        <button 
+            type="button" 
+            aria-label="Cerrar vista previa"
+            class="absolute top-5 right-5 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors"
+            onclick="cerrarLightbox()"
+        >
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <div class="max-w-4xl w-full flex flex-col items-center space-y-4" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Vista ampliada" class="max-h-[80vh] w-auto rounded-2xl shadow-2xl border border-white/10 object-contain">
+            <p id="lightbox-caption" class="text-white text-sm sm:text-base font-medium text-center bg-black/50 px-4 py-2 rounded-full"></p>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         3. FOOTER (Centrado, fondo negro, texto exacto solicitado)
+    ====================================================================== -->
+    <footer class="bg-black text-white py-8 px-4 text-center mt-auto">
+        <p class="text-sm sm:text-base font-medium tracking-wide">
+            Diseñado por GioDev.
+        </p>
+    </footer>
+
+    <!-- =====================================================================
+         JAVASCRIPT: Datos de las campañas, renderizado y lógica de despliegue
+    ====================================================================== -->
+    <script>
+        /**
+         * Configuración de datos para ambas campañas.
+         * Puedes editar libremente los títulos ("nombre") y las rutas de las 3 fotografías ("fotos")
+         * reemplazando las URLs por tus imágenes locales (ej. "img/foto1.jpg").
+         */
+        const datosCampanas = {
+            alived: [
+                {
+                    id: 'alived-1',
+                    nombre: 'Ginecología y Obstetricia Avanzada',
+                    driveUrl: 'https://drive.google.com/drive/folders/TU_ID_CARPETA_PAIDOPSIQUIATRIA',
+                    fotos: [
+                        {
+                            url: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Ginecología y Obstetricia Avanzada - Sesión Clínica 1'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Ginecología y Obstetricia Avanzada - Material Académico 2'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Ginecología y Obstetricia Avanzada - Certificación Alived 3'
+                        }
+                    ]
+                },
+                {
+                    id: 'alived-2',
+                    nombre: 'Nutrición Clinica Avanzada y Control Cardiometabolico',
+                    driveUrl: 'https://drive.google.com/',
+                    fotos: [
+                        {
+                            url: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Nutrición Clínica Avanzada y Control Cardiometabolico - Fotografía 1'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Nutrición Clínica Avanzada y Control Cardiometabolico - Fotografía 2'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Nutrición Clínica Avanzada y Control Cardiometabolico - Fotografía 3'
+                        }
+                    ]
+                },
+                {
+                    id: 'alived-3',
+                    nombre: 'Medicina Musculoesquelética y Ecografía Avanzada',
+                    driveUrl: 'https://drive.google.com/drive/folders/TU_ID_CARPETA_PSICOTERAPIA',
+                    fotos: [
+                        {
+                            url: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Medicina Musculoesquelética y Ecografía Avanzada - Fotografía 1'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Medicina Musculoesquelética y Ecografía Avanzada - Fotografía 2'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Medicina Musculoesquelética y Ecografía Avanzada - Fotografía 3'
+                        }
+                    ]
+                }
+            ],
+            ccp: [
+                {
+                    id: 'ccp-1',
+                    nombre: 'Neurologopedia',
+                    driveUrl: 'https://drive.google.com/drive/folders/TU_ID_CARPETA_GESTION',
+                    fotos: [
+                        {
+                            url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Neurologopedia - Fotografía 1'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Neurologopedia - Fotografía 2'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Neurologopedia - Fotografía 3'
+                        }
+                    ]
+                },
+                {
+                    id: 'ccp-2',
+                    nombre: 'Autismo y Tdah',
+                    driveUrl: 'https://drive.google.com/drive/folders/TU_ID_CARPETA_DESARROLLO',
+                    fotos: [
+                        {
+                            url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Autismo y Tdah - Fotografía 1'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Autismo y Tdah - Fotografía 2'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Autismo y Tdah - Fotografía 3'
+                        }
+                    ]
+                },
+                {
+                    id: 'ccp-3',
+                    nombre: 'Transtornos de la Personalidad',
+                    driveUrl: 'https://drive.google.com/drive/folders/TU_ID_CARPETA_HABILIDADES',
+                    fotos: [
+                        {
+                            url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Transtornos de la Personalidad - Fotografía 1'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Transtornos de la Personalidad - Fotografía 2'
+                        },
+                        {
+                            url: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
+                            descripcion: 'Transtornos de la Personalidad - Fotografía 3'
+                        }
+                    ]
+                }
+            ],
+            dossierAlived: {
+                driveUrl: 'https://drive.google.com/drive/folders/TU_ID_CARPETA_DOSSIER_ALIVED',
+                paginas: [
+                    {
+                        url: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1200&q=80',
+                        titulo: 'Portada Dossier Alived'
+                    },
+                    {
+                        url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+                        titulo: 'Plan Académico Alived'
+                    },
+                    {
+                        url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80',
+                        titulo: 'Certificaciones en Salud'
+                    }
+                ]
+            },
+            dossierCcp: {
+                driveUrl: 'https://drive.google.com/drive/folders/TU_ID_CARPETA_DOSSIER_CCP',
+                paginas: [
+                    {
+                        url: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+                        titulo: 'Portada Dossier CCP'
+                    },
+                    {
+                        url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
+                        titulo: 'Programas de Capacitación CCP'
+                    },
+                    {
+                        url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
+                        titulo: 'Información e Inscripciones CCP'
+                    }
+                ]
+            }
+        };
+
+        // Estado independiente para cada visor vertical
+        const estadoVisores = {
+            alived: 0,
+            ccp: 0
+        };
+
+        /**
+         * Construye e inicializa un visor vertical independiente para cada campaña
+         * @param {string} clave - 'alived' o 'ccp'
+         * @param {string} contenedorId - ID del div contenedor
+         * @param {Object} datosDossier - Objeto con driveUrl y arreglo de páginas
+         * @param {string} colorAcento - 'blue' o 'indigo'
+         */
+        function crearVisorDossier(clave, contenedorId, datosDossier, colorAcento) {
+            const contenedor = document.getElementById(contenedorId);
+            if (!contenedor) return;
+
+            const iconColor = colorAcento === 'blue' ? 'text-blue-400' : 'text-indigo-400';
+            const btnNextColor = colorAcento === 'blue' ? 'bg-blue-600 hover:bg-blue-500' : 'bg-indigo-600 hover:bg-indigo-500';
+            const btnPrevHover = colorAcento === 'blue' ? 'hover:bg-blue-600' : 'hover:bg-indigo-600';
+            const driveBtnColor = colorAcento === 'blue' ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-600/20' : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20';
+
+            contenedor.innerHTML = `
+                <div class="max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden">
+                    <!-- Barra superior del visor -->
+                    <div class="bg-slate-900 text-white px-5 py-3.5 flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-sm font-medium">
+                            <i data-lucide="book-open" class="w-4 h-4 ${iconColor}"></i>
+                            <span id="dossier-titulo-${clave}">${datosDossier.paginas[0].titulo}</span>
+                        </div>
+                        <span id="dossier-contador-${clave}" class="text-xs font-semibold bg-white/15 px-3 py-1 rounded-full">
+                            1 / ${datosDossier.paginas.length}
+                        </span>
+                    </div>
+
+                    <!-- Contenedor del carrusel vertical con transición hacia arriba -->
+                    <div id="dossier-viewport-${clave}" class="relative h-[420px] sm:h-[540px] bg-slate-950 overflow-hidden select-none">
+                        <div id="dossier-track-${clave}" class="w-full h-full transition-transform duration-700 ease-out">
+                            ${datosDossier.paginas.map((item, idx) => `
+                                <div class="w-full h-full relative flex items-center justify-center bg-slate-950 p-3 sm:p-6">
+                                    <img 
+                                        src="${item.url}" 
+                                        alt="${item.titulo}"
+                                        onclick="abrirLightbox('${item.url}', '${item.titulo}')"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/900x1100/1e293b/ffffff?text=Dossier+Página+${idx + 1}';"
+                                        class="max-w-full max-h-full object-contain rounded-xl shadow-2xl cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]"
+                                    >
+                                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-xs sm:text-sm px-4 py-1.5 rounded-full border border-white/10 pointer-events-none">
+                                        ${item.titulo}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <!-- Botones flotantes laterales para subir / bajar -->
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-2.5 z-10">
+                            <button 
+                                type="button" 
+                                onclick="moverDossier('${clave}', -1)"
+                                aria-label="Imagen anterior"
+                                class="w-11 h-11 rounded-full bg-black/60 ${btnPrevHover} text-white backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-all duration-200 cursor-pointer"
+                            >
+                                <i data-lucide="chevron-up" class="w-6 h-6"></i>
+                            </button>
+                            <button 
+                                type="button" 
+                                onclick="moverDossier('${clave}', 1)"
+                                aria-label="Subir siguiente imagen"
+                                class="w-11 h-11 rounded-full ${btnNextColor} text-white backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-all duration-200 cursor-pointer"
+                            >
+                                <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                            </button>
+                        </div>
+
+                        <!-- Indicadores verticales (puntos) -->
+                        <div id="dossier-indicadores-${clave}" class="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-10">
+                            ${datosDossier.paginas.map((_, idx) => `
+                                <button 
+                                    type="button"
+                                    onclick="irADossier('${clave}', ${idx})"
+                                    aria-label="Ir a página ${idx + 1}"
+                                    class="dossier-dot-${clave} w-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === 0 ? (colorAcento === 'blue' ? 'bg-blue-400 h-7' : 'bg-indigo-400 h-7') : 'bg-white/40 hover:bg-white/80 h-2.5'}"
+                                ></button>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Pie del visor con botón de acción rápida y enlace a Drive -->
+                    <div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <button 
+                            type="button"
+                            onclick="moverDossier('${clave}', 1)"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-sm font-semibold transition-colors cursor-pointer"
+                        >
+                            <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                            <span>Subir siguiente imagen</span>
+                        </button>
+
+                        <a 
+                            href="${datosDossier.driveUrl}" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl ${driveBtnColor} text-white text-sm font-semibold shadow-md transition-all"
+                        >
+                            <i data-lucide="hard-drive-download" class="w-4 h-4"></i>
+                            <span>Descargar Dossier en Drive</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            // Soporte táctil vertical (deslizar hacia arriba/abajo)
+            const viewport = document.getElementById(`dossier-viewport-${clave}`);
+            let touchStartY = 0;
+            viewport.addEventListener('touchstart', (e) => {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            viewport.addEventListener('touchend', (e) => {
+                const touchEndY = e.changedTouches[0].clientY;
+                const diferencia = touchStartY - touchEndY;
+                if (Math.abs(diferencia) > 40) {
+                    moverDossier(clave, diferencia > 0 ? 1 : -1);
+                }
+            }, { passive: true });
+        }
+
+        /**
+         * Mueve el visor correspondiente hacia arriba (+1) o hacia abajo (-1)
+         */
+        function moverDossier(clave, direccion) {
+            const datos = clave === 'alived' ? datosCampanas.dossierAlived : datosCampanas.dossierCcp;
+            const total = datos.paginas.length;
+            estadoVisores[clave] = (estadoVisores[clave] + direccion + total) % total;
+            actualizarEstadoDossier(clave);
+        }
+
+        /**
+         * Salta directamente a una diapositiva específica del visor indicado
+         */
+        function irADossier(clave, indice) {
+            estadoVisores[clave] = indice;
+            actualizarEstadoDossier(clave);
+        }
+
+        /**
+         * Aplica la traslación vertical (translateY negativo para que suban las imágenes)
+         */
+        function actualizarEstadoDossier(clave) {
+            const datos = clave === 'alived' ? datosCampanas.dossierAlived : datosCampanas.dossierCcp;
+            const indiceActual = estadoVisores[clave];
+            const track = document.getElementById(`dossier-track-${clave}`);
+            const tituloEl = document.getElementById(`dossier-titulo-${clave}`);
+            const contadorEl = document.getElementById(`dossier-contador-${clave}`);
+            const dots = document.querySelectorAll(`.dossier-dot-${clave}`);
+            const total = datos.paginas.length;
+            const activeDotColor = clave === 'alived' ? 'bg-blue-400' : 'bg-indigo-400';
+
+            if (track) {
+                track.style.transform = `translateY(-${indiceActual * 100}%)`;
+            }
+            if (tituloEl) {
+                tituloEl.textContent = datos.paginas[indiceActual].titulo;
+            }
+            if (contadorEl) {
+                contadorEl.textContent = `${indiceActual + 1} / ${total}`;
+            }
+
+            dots.forEach((dot, idx) => {
+                if (idx === indiceActual) {
+                    dot.className = `dossier-dot-${clave} w-2.5 h-7 rounded-full ${activeDotColor} transition-all duration-300 cursor-pointer`;
+                } else {
+                    dot.className = `dossier-dot-${clave} w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300 cursor-pointer`;
+                }
+            });
+        }
+
+        /**
+         * Renderiza los bloques interactivos (Acordeón con galería de 3 fotografías)
+         * @param {Array} items - Lista de objetos con nombre y arreglo de 3 fotos
+         * @param {string} contenedorId - ID del elemento HTML donde se insertarán
+         * @param {string} colorAcento - Tema de color ('blue' o 'indigo')
+         */
+        function renderizarItems(items, contenedorId, colorAcento) {
+            const contenedor = document.getElementById(contenedorId);
+            if (!contenedor) return;
+
+            const clasesHover = colorAcento === 'blue' 
+                ? 'hover:border-blue-500 hover:shadow-blue-500/10 group-hover:text-blue-700' 
+                : 'hover:border-indigo-500 hover:shadow-indigo-500/10 group-hover:text-indigo-700';
+
+            const badgeIcono = colorAcento === 'blue'
+                ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
+                : 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white';
+
+            const botonDriveEstilos = colorAcento === 'blue'
+                ? 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 shadow-blue-600/20'
+                : 'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 shadow-indigo-600/20';
+
+            contenedor.innerHTML = items.map(item => `
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 overflow-hidden ${clasesHover}">
+                    <!-- Botón con el nombre grande -->
+                    <button 
+                        type="button"
+                        onclick="toggleGaleria('${item.id}')"
+                        aria-expanded="false"
+                        aria-controls="galeria-${item.id}"
+                        class="group w-full px-6 py-6 sm:px-8 sm:py-7 flex items-center justify-between text-left focus:outline-none cursor-pointer"
+                    >
+                        <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 transition-colors duration-200">
+                            ${item.nombre}
+                        </span>
+                        <span id="icono-${item.id}" class="ml-4 flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 ${badgeIcono}">
+                            <i data-lucide="chevron-down" class="w-6 h-6 transition-transform duration-300"></i>
+                        </span>
+                    </button>
+
+                    <!-- Contenedor desplegable con las 3 fotografías y botón a Google Drive -->
+                    <div id="galeria-${item.id}" class="hidden border-t border-slate-100 bg-slate-50/70 px-6 py-6 sm:px-8 sm:py-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 animate-fade-in-up-fast">
+                            ${item.fotos.map((foto, idx) => `
+                                <div 
+                                    onclick="abrirLightbox('${foto.url}', '${foto.descripcion}')"
+                                    class="group/foto relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-200 shadow-sm hover:shadow-md cursor-pointer border border-slate-200/80"
+                                >
+                                    <img 
+                                        src="${foto.url}" 
+                                        alt="${foto.descripcion}"
+                                        loading="lazy"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/450x600/e2e8f0/475569?text=Fotografía+${idx + 1}';"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover/foto:scale-105"
+                                    >
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent opacity-0 group-hover/foto:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                                        <span class="text-white text-xs sm:text-sm font-medium flex items-center gap-1.5">
+                                            <i data-lucide="maximize-2" class="w-4 h-4"></i> Ver foto ${idx + 1}
+                                        </span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <!-- Botón de descarga directa en Google Drive -->
+                        <div class="mt-6 sm:mt-8 flex justify-center animate-fade-in-up-fast">
+                            <a 
+                                href="${item.driveUrl}" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-white font-semibold text-sm sm:text-base shadow-lg transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 ${botonDriveEstilos}"
+                            >
+                                <i data-lucide="hard-drive-download" class="w-5 h-5"></i>
+                                <span>Descargar archivos en Google Drive</span>
+                                <i data-lucide="external-link" class="w-4 h-4 opacity-80"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * Despliega u oculta las 3 fotografías al hacer clic en un nombre
+         * @param {string} id - Identificador único del elemento
+         */
+        function toggleGaleria(id) {
+            const galeria = document.getElementById(`galeria-${id}`);
+            const iconoContenedor = document.getElementById(`icono-${id}`);
+            const boton = iconoContenedor.closest('button');
+            const svgIcono = iconoContenedor.querySelector('svg');
+
+            if (!galeria) return;
+
+            const estaOculto = galeria.classList.contains('hidden');
+
+            if (estaOculto) {
+                galeria.classList.remove('hidden');
+                boton.setAttribute('aria-expanded', 'true');
+                if (svgIcono) svgIcono.style.transform = 'rotate(180deg)';
+            } else {
+                galeria.classList.add('hidden');
+                boton.setAttribute('aria-expanded', 'false');
+                if (svgIcono) svgIcono.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        /**
+         * Abre el visor ampliado al hacer clic en cualquiera de las 3 fotografías
+         */
+        function abrirLightbox(url, descripcion) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+
+            img.src = url;
+            caption.textContent = descripcion;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        /**
+         * Cierra el visor ampliado
+         */
+        function cerrarLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar lightbox con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') cerrarLightbox();
+        });
+
+        // Inicialización al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarItems(datosCampanas.alived, 'lista-alived', 'blue');
+            renderizarItems(datosCampanas.ccp, 'lista-ccp', 'indigo');
+            crearVisorDossier('alived', 'visor-container-alived', datosCampanas.dossierAlived, 'blue');
+            crearVisorDossier('ccp', 'visor-container-ccp', datosCampanas.dossierCcp, 'indigo');
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
